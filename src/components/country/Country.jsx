@@ -3,7 +3,7 @@ import './country.css'
 
 const Country = ({ country, visitCount, setVisitCount }) => {
     const [visit, setVisit] = useState(false);
-    const visitBtn = () => {
+    const handleVisitBtn = () => {
         //Toggling 
         //Basic System
         // if (visit) {
@@ -40,7 +40,7 @@ const Country = ({ country, visitCount, setVisitCount }) => {
             <p> <b>Region: </b> {country.region.region} </p>
             <p> <b>Population: </b> {country.population.population} </p>
             <p> <b>Area: </b> {country.area.area} ({country.area.area > 300000 ? "Big Country" : "Small Country"}) </p>
-            <button className='btn' onClick={visitBtn}>
+            <button className='btn' onClick={handleVisitBtn}>
                 {visit ? "Visited" : "Not Visited"}
             </button>
         </div>

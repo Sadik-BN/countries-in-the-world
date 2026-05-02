@@ -12,6 +12,7 @@ function Countries({ countriesPromise }) {
         <>
 
             <h1 style={{textAlign:'center'}}>Countries In The World</h1>
+            <h2 style={{textAlign:'center'}}>Total: {countries.length}</h2>
             <h2 style={{textAlign:'center'}}>Visited: {visitCount}</h2>
             <div className="card-container">
                 {/* {
