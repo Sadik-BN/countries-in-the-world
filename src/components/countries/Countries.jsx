@@ -8,12 +8,25 @@ function Countries({ countriesPromise }) {
 
     const[visitCount,setVisitCount] = useState(0);
 
+    const[visitFlagList,setVisitFlagList] = useState([]);
+
+    const handleVisitFlag = (flag)=>{
+        let newList = [...visitFlagList,flag];
+        setVisitFlagList(newList);
+    }
+
     return (
         <>
 
             <h1 style={{textAlign:'center'}}>Countries In The World</h1>
             <h2 style={{textAlign:'center'}}>Total: {countries.length}</h2>
             <h2 style={{textAlign:'center'}}>Visited: {visitCount}</h2>
+            <h2 style={{textAlign:'center'}}>Flags Visited: {visitFlagList.length}</h2>
+
+            {
+                visitFlagList.map(flag=> <img className="visited-flag" src={flag}></img>)
+            }
+
             <div className="card-container">
                 {/* {
                     countries.map(country => {
@@ -30,7 +43,7 @@ function Countries({ countriesPromise }) {
                 {/* This is for everything in one component */}
 
                 {
-                    countries.map(country => <Country key={country.ccn3.ccn3} country={country} visitCount = {visitCount} setVisitCount={setVisitCount}></Country>)
+                    countries.map(country => <Country key={country.ccn3.ccn3} country={country} visitCount = {visitCount} setVisitCount={setVisitCount} handleVisitFlag={handleVisitFlag}></Country>)
                 }
 
             </div>

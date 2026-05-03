@@ -3,6 +3,9 @@
     grid-template-columns: repeat(3,1fr);
     gap: 20px;
 }
+.visited-flag{
+    width:100px;
+}
 @media (max-width: 650px) {
     .card-container{
         grid-template-columns: repeat(1,1fr);

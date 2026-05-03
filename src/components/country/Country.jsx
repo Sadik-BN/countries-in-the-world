@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './country.css'
 
-const Country = ({ country, visitCount, setVisitCount }) => {
+const Country = ({ country, visitCount, setVisitCount, handleVisitFlag }) => {
     const [visit, setVisit] = useState(false);
     const handleVisitBtn = () => {
         //Toggling 
@@ -42,6 +42,17 @@ const Country = ({ country, visitCount, setVisitCount }) => {
             <p> <b>Area: </b> {country.area.area} ({country.area.area > 300000 ? "Big Country" : "Small Country"}) </p>
             <button className='btn' onClick={handleVisitBtn}>
                 {visit ? "Visited" : "Not Visited"}
+            </button>
+            <button className='btn' onClick={
+                () => {
+                    if (!visit) {
+                        handleVisitFlag(country.flags.flags.svg);
+                        handleVisitBtn();
+                    }
+                }
+
+            }>
+                Add to Flag Visited
             </button>
         </div>
     );
